@@ -8,10 +8,31 @@ import About from './About';
 import Contacts from './Contacts';
 
 class App extends Component {
+  state = {
+    openMenu: false
+  };
+
+  routes = {
+    home: '/',
+    about: '/about',
+    something: '/something',
+    contacts: '/contacts'
+  };
+
+  toggleMenu = () => {
+    this.setState({ openMenu: !this.state.openMenu });
+  };
+
   render() {
+    const { openMenu } = this.state;
+
     return (
       <div className="App">
-        <Header />
+        <Header
+          openMenu={openMenu}
+          onMenuClick={this.toggleMenu}
+          routes={this.routes}
+        />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
