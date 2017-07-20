@@ -45,7 +45,7 @@ class Prism extends Component {
             y1={innerHeight / 2}
             x2="100%"
             y2={innerHeight / 2}
-            style={{ 'stroke-width': innerHeight, stroke: '#111' }}
+            style={{ strokeWidth: innerHeight, stroke: '#111' }}
             animations={{
               x1: {
                 from: 0,

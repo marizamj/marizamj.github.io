@@ -41,8 +41,9 @@
   right: 50vw;
 }
 
-.info-nav__item {
+.info-nav__link {
+  color: #ddd;
+  text-decoration: none;
   display: inline-block;
   margin-left: 1.5em;
-  cursor: pointer;
 }

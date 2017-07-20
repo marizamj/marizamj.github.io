@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/Info.css';
 import 'animate.css';
-
-import { AnimatedLine, AnimatedCircle } from './SVGComponents';
 
 class Info extends Component {
   render() {
@@ -29,9 +28,9 @@ class Info extends Component {
           }
         >
           {navItems.map(item =>
-            <div className="info-nav__item" key={`nav${item}`}>
+            <Link to={`/${item}`} className="info-nav__link" key={`nav${item}`}>
               {item}
-            </div>
+            </Link>
           )}
         </div>
       </div>

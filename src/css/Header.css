@@ -1,0 +1,13 @@
+.Header {
+  height: 3em;
+  position: fixed;
+  line-height: 3em;
+  padding-left: 1em;
+  z-index: 100;
+}
+
+.header-menu-icon {
+  /*font-size: 1.5em;*/
+  cursor: pointer;
+  /*font-weight: 300;*/
+}

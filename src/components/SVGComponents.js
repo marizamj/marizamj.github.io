@@ -8,7 +8,13 @@ const AnimatedLine = props => {
       {animations
         ? Object.keys(animations).map(animation => {
             const attrs = animations[animation];
-            return <animate attributeName={animation} {...attrs} />;
+            return (
+              <animate
+                key={Math.random()}
+                attributeName={animation}
+                {...attrs}
+              />
+            );
           })
         : null}
     </line>
@@ -23,7 +29,13 @@ const AnimatedCircle = props => {
       {animations
         ? Object.keys(animations).map(animation => {
             const attrs = animations[animation];
-            return <animate attributeName={animation} {...attrs} />;
+            return (
+              <animate
+                key={Math.random()}
+                attributeName={animation}
+                {...attrs}
+              />
+            );
           })
         : null}
     </circle>
