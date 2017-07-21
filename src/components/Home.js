@@ -31,7 +31,7 @@ class Home extends Component {
       <div
         ref="home"
         className={
-          elementToUnmount === this ? 'Home animated bounceOutUp' : 'Home'
+          elementToUnmount === '/' ? 'Home animated bounceOutUp' : 'Home'
         }
       >
         <Info prismAnimationComplete={prismAnimationComplete} />

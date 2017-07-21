@@ -29,7 +29,7 @@ class App extends Component {
     const { pathname } = this.props.location;
 
     if (pathname !== nextRoute) {
-      this.setState({ elementToUnmount: this[pathname], nextRoute });
+      this.setState({ elementToUnmount: pathname, nextRoute });
     }
   };
 
@@ -60,31 +60,18 @@ class App extends Component {
           location={this.props.location}
         />
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() =>
-              <Home ref={el => (this['/'] = el)} {...changeRouteProps} />}
-          />
+          <Route exact path="/" render={() => <Home {...changeRouteProps} />} />
           <Route
             path="/about"
             render={() =>
-              <AnimatedComponent
-                key={'about'}
-                ref={el => (this['/about'] = el)}
-                {...changeRouteProps}
-              >
+              <AnimatedComponent name="about" {...changeRouteProps}>
                 <About />
               </AnimatedComponent>}
           />
           <Route
             path="/contacts"
             render={() =>
-              <AnimatedComponent
-                key={'contacts'}
-                ref={el => (this['/contacts'] = el)}
-                {...changeRouteProps}
-              >
+              <AnimatedComponent name="contacts" {...changeRouteProps}>
                 <Contacts />
               </AnimatedComponent>}
           />

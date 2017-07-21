@@ -23,7 +23,7 @@ class AnimatedComponent extends Component {
       <div
         ref="main"
         className={
-          elementToUnmount === this
+          elementToUnmount === `/${this.props.name}`
             ? 'AnimatedComponent animated bounceOutUp'
             : 'AnimatedComponent animated fadeInUp'
         }
