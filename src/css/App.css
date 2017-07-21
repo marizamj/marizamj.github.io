@@ -1,4 +1,5 @@
 .App {
   font-size: 2em;
   color: #ddd;
+  overflow: hidden;
 }
