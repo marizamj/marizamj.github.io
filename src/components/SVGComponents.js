@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const AnimatedLine = props => {
   const { x1, y1, x2, y2, style, filter, animations } = props;

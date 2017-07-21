@@ -7,6 +7,10 @@
   z-index: 100;
 }
 
+.header-menu-icon__container {
+  display: inline-block;
+}
+
 .header-menu-icon {
   cursor: pointer;
   margin-right: 1em;

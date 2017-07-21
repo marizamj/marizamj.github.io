@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import '../css/Header.css';
 
 import MdMenu from 'react-icons/lib/md/menu';
@@ -20,21 +19,29 @@ const Menu = props =>
   <div>
     <MdClose className="header-menu-icon" onClick={props.onMenuClick} />
     {Object.keys(props.routes).map(route =>
-      <Link key={`menu-link-${route}`} to={props.routes[route]}>
+      <div
+        key={`menu-link-${route}`}
+        className="header-menu-icon__container"
+        onClick={() => {
+          if (props.location.pathname !== `/${route}`) {
+            props.onAnimateUnmountingElement(route);
+          }
+        }}
+      >
         {icons[route]}
-      </Link>
+      </div>
     )}
   </div>;
 
 class Header extends Component {
   render() {
-    const { openMenu, onMenuClick, routes } = this.props;
+    const { openMenu, onMenuClick } = this.props;
 
     return (
       <div className="Header">
         {!openMenu
           ? <MdMenu className="header-menu-icon" onClick={onMenuClick} />
-          : <Menu onMenuClick={onMenuClick} routes={routes} />}
+          : <Menu {...this.props} />}
       </div>
     );
   }

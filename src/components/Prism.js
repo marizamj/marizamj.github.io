@@ -17,11 +17,16 @@ class Prism extends Component {
   };
 
   componentDidMount = () => {
-    setTimeout(() => {
+    this.timeout = setTimeout(() => {
       this.refs.rainbow.classList.add('opacity');
       this.props.onAnimationComplete();
     }, 4500);
   };
+
+  componentWillUnmount() {
+    clearTimeout(this.timeout);
+    this.refs.prism.classList.add('animated', 'fadeOutUp');
+  }
 
   render() {
     const { topV, leftV, rightV } = this.state;
@@ -29,7 +34,7 @@ class Prism extends Component {
     const { innerHeight } = window;
 
     return (
-      <div className="Prism">
+      <div className="Prism" ref="prism">
         <svg className="svgPrism">
           <animate
             attributeName="opacity"
