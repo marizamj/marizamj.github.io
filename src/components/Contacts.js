@@ -3,7 +3,7 @@ import '../css/Contacts.css';
 
 class Contacts extends Component {
   render() {
-    return <div className="Contacts" />;
+    return <div className="Contacts">coming up soon</div>;
   }
 }
 
