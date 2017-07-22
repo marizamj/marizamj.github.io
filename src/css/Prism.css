@@ -34,7 +34,7 @@
     magenta,
     transparent 30%
   );
-  animation: grow 2s 2.5s forwards;
+  animation: grow 2s 2s forwards;
 }
 
 @keyframes grow {

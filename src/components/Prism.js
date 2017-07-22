@@ -20,7 +20,7 @@ class Prism extends Component {
     this.timeout = setTimeout(() => {
       this.refs.rainbow.classList.add('opacity');
       this.props.onAnimationComplete();
-    }, 4500);
+    }, 4000);
   };
 
   componentWillUnmount() {
@@ -58,14 +58,14 @@ class Prism extends Component {
                       from: start.x,
                       to: end.x,
                       fill: 'freeze',
-                      dur: '1.5s',
+                      dur: '1s',
                       begin: '0.8s'
                     },
                     y2: {
                       from: start.y,
                       to: end.y,
                       fill: 'freeze',
-                      dur: '1.5s',
+                      dur: '1s',
                       begin: '0.8s'
                     }
                   }}
@@ -81,10 +81,10 @@ class Prism extends Component {
                     cx: {
                       from: start.x,
                       to: end.x,
-                      dur: '1.5s',
+                      dur: '1s',
                       begin: '0.8s'
                     },
-                    cy: { from: start.y, to: end.y, dur: '1.5s', begin: '0.8s' }
+                    cy: { from: start.y, to: end.y, dur: '1s', begin: '0.8s' }
                   }}
                 />
               </g>
@@ -101,7 +101,7 @@ class Prism extends Component {
                 from: 0,
                 to: '50%',
                 fill: 'freeze',
-                dur: '1.5s',
+                dur: '1s',
                 begin: '0.8s'
               }
             }}
@@ -117,7 +117,7 @@ class Prism extends Component {
               cx: {
                 from: 0,
                 to: '50%',
-                dur: '1.5s',
+                dur: '1s',
                 begin: '0.8s',
                 fill: 'freeze'
               }
