@@ -7,13 +7,25 @@
   z-index: 100;
 }
 
+.header-menu-icon__main {
+  display: inline-block;
+  margin-right: 1em;
+  text-align: center;
+  cursor: pointer;
+}
+
 .header-menu-icon__container {
   display: inline-block;
   color: #ddd;
+  width: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.header-menu-icon__container:hover {
+  font-size: 0.5em;
 }
 
 .header-menu-icon {
-  cursor: pointer;
-  margin-right: 1em;
   color: #ddd;
 }

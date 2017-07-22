@@ -9,39 +9,78 @@ import MdCode from 'react-icons/lib/md/code';
 import MdMailOutline from 'react-icons/lib/md/mail-outline';
 
 const icons = {
-  '/': <MdHome className="header-menu-icon" />,
-  about: <MdInfoOutline className="header-menu-icon" />,
-  skills: <MdCode className="header-menu-icon" />,
-  contacts: <MdMailOutline className="header-menu-icon" />
+  '/': {
+    icon: (
+      <MdHome
+        style={{ fill: 'transparent', stroke: '#ddd', strokeWidth: 3 }}
+        className="header-menu-icon"
+      />
+    ),
+    caption: 'home'
+  },
+  about: {
+    icon: <MdInfoOutline className="header-menu-icon" />,
+    caption: 'about'
+  },
+  skills: { icon: <MdCode className="header-menu-icon" />, caption: 'skills' },
+  contacts: {
+    icon: <MdMailOutline className="header-menu-icon" />,
+    caption: 'contacts'
+  }
 };
 
 const Menu = props =>
   <div>
-    <MdClose className="header-menu-icon" onClick={props.onMenuClick} />
+    <div className="header-menu-icon__main">
+      <MdClose
+        className="header-menu-icon animated flipInX"
+        onClick={props.onMenuClick}
+      />{' '}
+    </div>
     {Object.keys(props.routes).map(route =>
       <div
         key={`menu-link-${route}`}
-        className="header-menu-icon__container"
+        className="header-menu-icon__container animated flipInX"
         onClick={() => {
           if (props.location.pathname !== `/${route}`) {
             props.onAnimateUnmountingElement(route);
           }
         }}
+        onMouseOver={() => {
+          props.onChangeHover(route);
+        }}
+        onMouseOut={() => {
+          props.onChangeHover('');
+        }}
       >
-        {icons[route]}
+        {props.hover === route ? icons[route].caption : icons[route].icon}
       </div>
     )}
   </div>;
 
 class Header extends Component {
+  state = {
+    hover: ''
+  };
+
   render() {
+    const { hover } = this.state;
     const { openMenu, onMenuClick } = this.props;
 
     return (
       <div className="Header">
         {!openMenu
-          ? <MdMenu className="header-menu-icon" onClick={onMenuClick} />
-          : <Menu {...this.props} />}
+          ? <MdMenu
+              className="header-menu-icon animated flipInX"
+              onClick={onMenuClick}
+            />
+          : <Menu
+              {...this.props}
+              hover={hover}
+              onChangeHover={hover => {
+                this.setState({ hover });
+              }}
+            />}
       </div>
     );
   }
