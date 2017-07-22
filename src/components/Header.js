@@ -5,13 +5,13 @@ import MdMenu from 'react-icons/lib/md/menu';
 import MdClose from 'react-icons/lib/md/close';
 import MdHome from 'react-icons/lib/md/home';
 import MdInfoOutline from 'react-icons/lib/md/info-outline';
-import MdAllInclusive from 'react-icons/lib/md/all-inclusive';
+import MdCode from 'react-icons/lib/md/code';
 import MdMailOutline from 'react-icons/lib/md/mail-outline';
 
 const icons = {
   '/': <MdHome className="header-menu-icon" />,
   about: <MdInfoOutline className="header-menu-icon" />,
-  something: <MdAllInclusive className="header-menu-icon" />,
+  skills: <MdCode className="header-menu-icon" />,
   contacts: <MdMailOutline className="header-menu-icon" />
 };
 

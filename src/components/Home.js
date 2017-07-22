@@ -11,10 +11,16 @@ class Home extends Component {
 
   render() {
     const { prismAnimationComplete } = this.state;
+    const { routes, location, onAnimateUnmountingElement } = this.props;
 
     return (
       <div className="Home">
-        <Info prismAnimationComplete={prismAnimationComplete} />
+        <Info
+          routes={routes}
+          location={location}
+          onAnimateUnmountingElement={onAnimateUnmountingElement}
+          prismAnimationComplete={prismAnimationComplete}
+        />
         <Prism
           onAnimationComplete={() => {
             this.setState({ prismAnimationComplete: true });

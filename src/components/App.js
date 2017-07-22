@@ -9,6 +9,7 @@ import AnimatedComponent from './AnimatedComponent';
 import Header from './Header';
 import Home from './Home';
 import About from './About';
+import Skills from './Skills';
 import Contacts from './Contacts';
 
 class App extends Component {
@@ -21,7 +22,7 @@ class App extends Component {
   routes = {
     '/': '/',
     about: '/about',
-    something: '/something',
+    skills: '/skills',
     contacts: '/contacts'
   };
 
@@ -69,7 +70,11 @@ class App extends Component {
                 name=""
                 {...changeRouteProps}
               >
-                <Home />
+                <Home
+                  routes={this.routes}
+                  location={this.props.location}
+                  onAnimateUnmountingElement={this.animateUnmountingElement}
+                />
               </AnimatedComponent>}
           />
           <Route
@@ -81,6 +86,17 @@ class App extends Component {
                 {...changeRouteProps}
               >
                 <About />
+              </AnimatedComponent>}
+          />
+          <Route
+            path="/skills"
+            render={() =>
+              <AnimatedComponent
+                animate={{ in: true, out: true }}
+                name="skills"
+                {...changeRouteProps}
+              >
+                <Skills />
               </AnimatedComponent>}
           />
           <Route

@@ -9,6 +9,7 @@
 
 .header-menu-icon__container {
   display: inline-block;
+  color: #ddd;
 }
 
 .header-menu-icon {

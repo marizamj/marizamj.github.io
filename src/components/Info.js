@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import '../css/Info.css';
 
 class Info extends Component {
   render() {
-    const { prismAnimationComplete } = this.props;
-
-    const navItems = ['about', 'something', 'contacts'];
+    const {
+      prismAnimationComplete,
+      routes,
+      location,
+      onAnimateUnmountingElement
+    } = this.props;
 
     return (
       <div className="Info">
@@ -26,10 +28,21 @@ class Info extends Component {
               : 'info-nav-hidden'
           }
         >
-          {navItems.map(item =>
-            <Link to={`/${item}`} className="info-nav__link" key={`nav${item}`}>
-              {item}
-            </Link>
+          {Object.entries(routes).map(
+            ([name, route]) =>
+              name !== '/'
+                ? <span
+                    className="info-nav__link"
+                    key={`nav${route}`}
+                    onClick={() => {
+                      if (location.pathname !== route) {
+                        onAnimateUnmountingElement(name);
+                      }
+                    }}
+                  >
+                    {name}
+                  </span>
+                : ''
           )}
         </div>
       </div>
