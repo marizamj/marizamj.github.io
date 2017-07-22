@@ -10,7 +10,7 @@ import Header from './Header';
 import Home from './Home';
 import About from './About';
 import Skills from './Skills';
-import Contacts from './Contacts';
+import Contact from './Contact';
 
 class App extends Component {
   state = {
@@ -23,7 +23,7 @@ class App extends Component {
     '/': '/',
     about: '/about',
     skills: '/skills',
-    contacts: '/contacts'
+    contact: '/contact'
   };
 
   animateUnmountingElement = nextRoute => {
@@ -100,14 +100,14 @@ class App extends Component {
               </AnimatedComponent>}
           />
           <Route
-            path="/contacts"
+            path="/contact"
             render={() =>
               <AnimatedComponent
                 animate={{ in: true, out: true }}
-                name="contacts"
+                name="contact"
                 {...changeRouteProps}
               >
-                <Contacts />
+                <Contact />
               </AnimatedComponent>}
           />
 

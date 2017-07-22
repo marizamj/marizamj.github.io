@@ -1,0 +1,35 @@
+.Contact {
+  margin-top: 30vh;
+  width: 100%;
+  height: calc(100vh - 3em);
+}
+
+.contact__text {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 90%;
+  text-align: center;
+}
+
+.contact__text__header {
+  font-size: 1.5em;
+  line-height: 3em;
+}
+
+.contact__text__contacts {
+  font-size: 2em;
+}
+
+.contact__text__contacts a:hover {
+  text-decoration: underline;
+}
+
+.SocialIcon-container {
+  position: relative;
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  overflow: hidden;
+}

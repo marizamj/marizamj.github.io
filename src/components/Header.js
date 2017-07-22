@@ -23,9 +23,9 @@ const icons = {
     caption: 'about'
   },
   skills: { icon: <MdCode className="header-menu-icon" />, caption: 'skills' },
-  contacts: {
+  contact: {
     icon: <MdMailOutline className="header-menu-icon" />,
-    caption: 'contacts'
+    caption: 'contact'
   }
 };
 
