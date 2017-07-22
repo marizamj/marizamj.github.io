@@ -15,13 +15,15 @@
 
 .rainbow {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 0;
+  height: 0;
   z-index: -2;
+  margin: 0 auto;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+  margin: auto;
   background: conic-gradient(
     transparent 20%,
     red,
@@ -32,6 +34,19 @@
     magenta,
     transparent 30%
   );
+  animation: grow 2s 2.5s forwards;
+}
+
+@keyframes grow {
+  0% {
+    height: 0;
+    width: 0;
+  }
+
+  100% {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .opacity {

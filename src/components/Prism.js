@@ -45,23 +45,6 @@ class Prism extends Component {
             fill="freeze"
           />
 
-          <AnimatedLine
-            x1={0}
-            y1={innerHeight / 2}
-            x2="100%"
-            y2={innerHeight / 2}
-            style={{ strokeWidth: innerHeight, stroke: '#111' }}
-            animations={{
-              x1: {
-                from: 0,
-                to: '100%',
-                fill: 'freeze',
-                dur: '3s',
-                begin: '1s'
-              }
-            }}
-          />
-
           <g className="triangle">
             {triangleSides.map(([start, end], i) =>
               <g key={`triangle-side${i}`}>
