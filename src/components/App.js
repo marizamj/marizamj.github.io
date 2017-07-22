@@ -14,12 +14,12 @@ import Contacts from './Contacts';
 class App extends Component {
   state = {
     openMenu: false,
-    elementToUnmount: null,
+    elementToUnmount: '',
     nextRoute: ''
   };
 
   routes = {
-    home: '/',
+    '/': '/',
     about: '/about',
     something: '/something',
     contacts: '/contacts'
@@ -60,18 +60,37 @@ class App extends Component {
           location={this.props.location}
         />
         <Switch>
-          <Route exact path="/" render={() => <Home {...changeRouteProps} />} />
+          <Route
+            exact
+            path="/"
+            render={() =>
+              <AnimatedComponent
+                animate={{ in: false, out: true }}
+                name=""
+                {...changeRouteProps}
+              >
+                <Home />
+              </AnimatedComponent>}
+          />
           <Route
             path="/about"
             render={() =>
-              <AnimatedComponent name="about" {...changeRouteProps}>
+              <AnimatedComponent
+                animate={{ in: true, out: true }}
+                name="about"
+                {...changeRouteProps}
+              >
                 <About />
               </AnimatedComponent>}
           />
           <Route
             path="/contacts"
             render={() =>
-              <AnimatedComponent name="contacts" {...changeRouteProps}>
+              <AnimatedComponent
+                animate={{ in: true, out: true }}
+                name="contacts"
+                {...changeRouteProps}
+              >
                 <Contacts />
               </AnimatedComponent>}
           />

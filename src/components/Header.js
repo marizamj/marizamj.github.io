@@ -9,7 +9,7 @@ import MdAllInclusive from 'react-icons/lib/md/all-inclusive';
 import MdMailOutline from 'react-icons/lib/md/mail-outline';
 
 const icons = {
-  home: <MdHome className="header-menu-icon" />,
+  '/': <MdHome className="header-menu-icon" />,
   about: <MdInfoOutline className="header-menu-icon" />,
   something: <MdAllInclusive className="header-menu-icon" />,
   contacts: <MdMailOutline className="header-menu-icon" />

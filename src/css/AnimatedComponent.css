@@ -1,3 +1,7 @@
 .AnimatedComponent.fadeInUp {
   animation-duration: 0.5s;
 }
+
+.AnimatedComponent.fadeInUp.skipAnimation {
+  animation-duration: 0s;
+}
