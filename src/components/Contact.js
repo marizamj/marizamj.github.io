@@ -48,7 +48,7 @@ class Contact extends Component {
     return (
       <div className="Contact">
         <div className="contact__text">
-          <div className="contact__text__header">Get in touch!</div>
+          <div className="contact__text__header">Let&#039;s get in touch!</div>
           <div className="contact__text__contacts">
             {Object.entries(this.contacts).map(([name, icon]) =>
               <div key={`contact-${name}`} className="SocialIcon-container">

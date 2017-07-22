@@ -13,3 +13,7 @@
   width: 60%;
   background: rgba(0, 0, 0, 0.6);
 }
+
+.about__text p {
+  margin-top: 0;
+}
