@@ -103,7 +103,7 @@ class App extends Component {
             path="/contact"
             render={() =>
               <AnimatedComponent
-                animate={{ in: true, out: true }}
+                animate={{ in: false, out: true }}
                 name="contact"
                 {...changeRouteProps}
               >

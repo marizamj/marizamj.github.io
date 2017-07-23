@@ -1,58 +1,30 @@
 import React, { Component } from 'react';
 import '../css/Contact.css';
 
-import { SocialIcon } from 'react-social-icons';
+import MyIcon from './MyIcon';
 
 class Contact extends Component {
-  iconStyles = {
-    stroke: '#ddd',
-    height: '1.3em',
-    width: '1.3em',
-    position: 'absolute',
-    left: '-0.05em',
-    top: '-0.05em'
-  };
   contacts = {
-    Email: (
-      <SocialIcon
-        url="mailto:marizamj@gmail.com"
-        network="email"
-        color="#111"
-        style={this.iconStyles}
-      />
-    ),
-    GitHub: (
-      <SocialIcon
-        url="https://github.com/marizamj"
-        color="#111"
-        style={this.iconStyles}
-      />
-    ),
-    LinkedIn: (
-      <SocialIcon
-        url="https://www.linkedin.com/in/zamzhitskaya/"
-        color="#111"
-        style={this.iconStyles}
-      />
-    ),
-    Facebook: (
-      <SocialIcon
-        url="https://www.facebook.com/marie.zamzhitskaya"
-        color="#111"
-        style={this.iconStyles}
-      />
-    )
+    email: 'mailto:marizamj@gmail.com',
+    github: 'https://github.com/marizamj',
+    linkedin: 'https://www.linkedin.com/in/zamzhitskaya/',
+    facebook: 'https://www.facebook.com/marie.zamzhitskaya',
+    instagram: 'https://www.instagram.com/goodmorning_mari/'
   };
 
   render() {
     return (
-      <div className="Contact">
-        <div className="contact__text">
-          <div className="contact__text__header">Let&#039;s get in touch!</div>
-          <div className="contact__text__contacts">
-            {Object.entries(this.contacts).map(([name, icon]) =>
-              <div key={`contact-${name}`} className="SocialIcon-container">
-                {icon}
+      <div className="Contact-wrapper">
+        <div className="contact">
+          <div className="contact__header animated bounceInLeft">
+            Get in touch!
+          </div>
+          <div className="contact__contacts animated bounceInRight">
+            {Object.entries(this.contacts).map(([name, href]) =>
+              <div className="contact__icon-container" key={`contact-${name}`}>
+                <a target="_blank" href={href}>
+                  <MyIcon icon={name} size="1em" color="#ddd" />
+                </a>
               </div>
             )}
           </div>

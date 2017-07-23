@@ -1,9 +1,9 @@
-.Contact {
+.Contact-wrapper {
   width: 100%;
   height: calc(100vh - 3em);
 }
 
-.contact__text {
+.contact {
   top: 30vh;
   position: absolute;
   right: 0;
@@ -13,23 +13,17 @@
   text-align: center;
 }
 
-.contact__text__header {
+.contact__header {
   font-size: 1.5em;
   line-height: 3em;
 }
 
-.contact__text__contacts {
+.contact__contacts {
   font-size: 2em;
+  animation-delay: 0.2s;
 }
 
-.contact__text__contacts a:hover {
-  text-decoration: underline;
-}
-
-.SocialIcon-container {
-  position: relative;
+.contact__icon-container {
   display: inline-block;
-  width: 1.2em;
-  height: 1.2em;
-  overflow: hidden;
+  margin: 0 0.3em;
 }

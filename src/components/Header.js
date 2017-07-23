@@ -1,41 +1,15 @@
 import React, { Component } from 'react';
 import '../css/Header.css';
 
-import MdMenu from 'react-icons/lib/md/menu';
-import MdClose from 'react-icons/lib/md/close';
-import MdHome from 'react-icons/lib/md/home';
-import MdInfoOutline from 'react-icons/lib/md/info-outline';
-import MdCode from 'react-icons/lib/md/code';
-import MdMailOutline from 'react-icons/lib/md/mail-outline';
-
-const icons = {
-  '/': {
-    icon: (
-      <MdHome
-        style={{ fill: 'transparent', stroke: '#ddd', strokeWidth: 3 }}
-        className="header-menu-icon"
-      />
-    ),
-    caption: 'home'
-  },
-  about: {
-    icon: <MdInfoOutline className="header-menu-icon" />,
-    caption: 'about'
-  },
-  skills: { icon: <MdCode className="header-menu-icon" />, caption: 'skills' },
-  contact: {
-    icon: <MdMailOutline className="header-menu-icon" />,
-    caption: 'contact'
-  }
-};
+import MyIcon from './MyIcon';
 
 const Menu = props =>
   <div>
-    <div className="header-menu-icon__main">
-      <MdClose
-        className="header-menu-icon animated flipInX"
-        onClick={props.onMenuClick}
-      />{' '}
+    <div
+      onClick={props.onMenuClick}
+      className="header-menu-icon__main animated flipInX"
+    >
+      <MyIcon icon="close" color="#ddd" size="1em" />
     </div>
     {Object.keys(props.routes).map(route =>
       <div
@@ -53,7 +27,13 @@ const Menu = props =>
           props.onChangeHover('');
         }}
       >
-        {props.hover === route ? icons[route].caption : icons[route].icon}
+        {props.hover === route
+          ? route === '/' ? 'home' : route
+          : <MyIcon
+              icon={route === '/' ? 'home' : route}
+              size="1em"
+              color="#ddd"
+            />}
       </div>
     )}
   </div>;
@@ -70,10 +50,12 @@ class Header extends Component {
     return (
       <div className="Header">
         {!openMenu
-          ? <MdMenu
-              className="header-menu-icon animated flipInX"
+          ? <div
               onClick={onMenuClick}
-            />
+              className="header-menu-icon__main animated flipInX"
+            >
+              <MyIcon icon="menu" color="#ddd" size="1em" />
+            </div>
           : <Menu
               {...this.props}
               hover={hover}
