@@ -1,5 +1,6 @@
 .Header {
   height: 3em;
+  width: 100%;
   position: fixed;
   top: 0;
   line-height: 3em;
@@ -26,4 +27,16 @@
 
 .header-menu-icon__container:hover {
   font-size: 0.5em;
+}
+
+@media (max-width: 770px) {
+  .Header {
+    padding: 0;
+  }
+
+  .header-menu-icon__main,
+  .header-menu-icon__container {
+    width: 20%;
+    margin: 0;
+  }
 }

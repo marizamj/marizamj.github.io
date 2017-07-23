@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import '../css/Prism.css';
 
 import { AnimatedLine, AnimatedCircle } from './SVGComponents';
@@ -13,15 +14,35 @@ class Prism extends Component {
     rightV: {
       x: window.innerWidth / 2 + window.innerHeight * 0.35 / 2,
       y: window.innerHeight * 0.35 * 2
-    }
+    },
+    viewBox: `0 0 ${window.innerWidth} ${window.innerHeight}`
+  };
+
+  getCoords = () => ({
+    topV: { x: window.innerWidth / 2, y: window.innerHeight * 0.35 },
+    leftV: {
+      x: window.innerWidth / 2 - window.innerHeight * 0.35 / 2,
+      y: window.innerHeight * 0.35 * 2
+    },
+    rightV: {
+      x: window.innerWidth / 2 + window.innerHeight * 0.35 / 2,
+      y: window.innerHeight * 0.35 * 2
+    },
+    viewBox: `0 0 ${window.innerWidth} ${window.innerHeight}`
+  });
+
+  handleResize = () => {
+    this.setState(this.getCoords());
   };
 
   componentDidMount = () => {
-    this.timeout = setTimeout(() => {
-      this.refs.rainbow.classList.add('opacity');
-      this.props.onAnimationComplete();
-    }, 4000);
+    window.addEventListener('resize', e => {
+      this.handleResize();
+    });
   };
+
+  shouldComponentUpdate = (nextProps, nextState) =>
+    _.isEqual(nextState, this.state) ? false : true;
 
   componentWillUnmount() {
     clearTimeout(this.timeout);
@@ -29,13 +50,13 @@ class Prism extends Component {
   }
 
   render() {
-    const { topV, leftV, rightV } = this.state;
+    const { topV, leftV, rightV, viewBox } = this.state;
     const triangleSides = [[topV, leftV], [leftV, rightV], [rightV, topV]];
     const { innerHeight } = window;
 
     return (
       <div className="Prism" ref="prism">
-        <svg className="svgPrism">
+        <svg viewBox={viewBox} ref="SVGprism" className="svgPrism">
           <animate
             attributeName="opacity"
             from="1"

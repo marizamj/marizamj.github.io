@@ -1,6 +1,7 @@
 .Contact-wrapper {
   width: 100%;
   height: calc(100vh - 3em);
+  /*position: relative;*/
 }
 
 .contact {
@@ -9,7 +10,7 @@
   right: 0;
   left: 0;
   margin: auto;
-  width: 90%;
+  /*width: 90%;*/
   text-align: center;
 }
 
@@ -26,4 +27,23 @@
 .contact__icon-container {
   display: inline-block;
   margin: 0 0.3em;
+}
+
+@media (max-width: 770px) {
+  .contact {
+    top: 2em;
+  }
+
+  .contact__header {
+    font-size: 1em;
+  }
+
+  .contact__icon-container {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+
+  .contact__contacts {
+    font-size: 1.5em;
+  }
 }

@@ -3,31 +3,15 @@ import '../css/Info.css';
 
 class Info extends Component {
   render() {
-    const {
-      prismAnimationComplete,
-      routes,
-      location,
-      onAnimateUnmountingElement
-    } = this.props;
+    const { routes, location, onAnimateUnmountingElement } = this.props;
 
     return (
       <div className="Info">
-        <div
-          className={
-            prismAnimationComplete
-              ? 'info-name animated bounceInRight'
-              : 'info-name-hidden'
-          }
-        >
-          Marie Zamzhitskaya
+        <div className="info-name animated bounceInRight">
+          <span className="info-name__word">Marie</span>{' '}
+          <span className="info-name__word">Zamzhitskaya</span>
         </div>
-        <div
-          className={
-            prismAnimationComplete
-              ? 'info-nav animated bounceInLeft'
-              : 'info-nav-hidden'
-          }
-        >
+        <div className="info-nav animated bounceInLeft">
           {Object.entries(routes).map(
             ([name, route]) =>
               name !== '/'

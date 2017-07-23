@@ -1,12 +1,16 @@
-.Prism,
-.svgPrism {
+.Prism {
   position: absolute;
-  height: 100%;
-  width: 100%;
+  top: 0;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+  margin: auto;
+  overflow: hidden;
+}
+
+.Prism,
+.svgPrism {
   stroke: #ddd;
   stroke-width: 2;
   fill: freeze;
@@ -33,7 +37,7 @@
     magenta,
     transparent 30%
   );
-  animation: grow 2s 2s forwards;
+  animation: grow 2s 2s forwards, fade 1s 4s forwards;
 }
 
 @keyframes grow {
@@ -48,7 +52,12 @@
   }
 }
 
-.opacity {
-  opacity: 0.5;
-  transition: opacity 1s linear;
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
 }
